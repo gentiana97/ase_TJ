@@ -14,7 +14,7 @@
       end 
       end
 
-#3. Restituisce la stringa più lunga in un array di stringhe
+#3. Restituisce la stringa piÃ¹ lunga in un array di stringhe
 
    def find_longest_string(array) 
    array.max_by{|i| i.length }
@@ -102,14 +102,12 @@ class Point2D
      end
 # la classe punto deve avere rendere accessibili gli attributi `x` e `y` IN SOLA LETTURA
      attr_reader :x,:y 
-# la funzione `+` riceve come argomento un oggetto Point2D e restituisce un
- nuovo oggetto Point2D che ha come             # coordinate la somma delle coordinate dei
- due oggetti
+# la funzione `+` riceve come argomento un oggetto Point2D e restituisce un nuovo oggetto Point2D che ha come 
+#coordinate la somma delle coordinate dei due oggetti
      def + (point) 
        return Point2D.new(@x+point.x,@y+point.y) 
        end
-# Restituisce una rappresentazione testuale dell'oggetto punto, nella forma
- "(x,y)", senza spazi 
+# Restituisce una rappresentazione testuale dell'oggetto punto, nella forma "(x,y)", senza spazi 
        def to_s 
          "(#{@x},#{@y})" 
          end 
@@ -121,7 +119,7 @@ class Book
   attr_accessor :title, :author, :release_date, :publisher, :isbn
 
   # Implementa il costruttore
-  # dai un'occhiata a https://robots.thoughtbot.com/ruby-2-keyword-arguments
+ 
   def initialize(title:, author:, release_date:, publisher:, isbn:)
     @title= title
     @author= author
