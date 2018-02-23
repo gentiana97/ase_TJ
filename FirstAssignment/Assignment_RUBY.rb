@@ -1,23 +1,23 @@
 #1. Restituisce una stringa che dice "Benvenuto"
 
      def welcome_message 
-     puts "Benvenuto" 
+      "Benvenuto" 
      end
 
 #2.  Restituisce n! (fattoriale)
 
       def factorial(n) 
-      if n==0 then 
-      1 
-      else 
-      n*factorial(n-1) 
-      end 
+      n==0 ? 1: (1..n).reduce(:*)
       end
 
 #3. Restituisce la stringa più lunga in un array di stringhe
 
    def find_longest_string(array) 
+   if !array.empty?
    array.max_by{|i| i.length }
+   else
+        nil
+   end
    end
 
 #4.  Restituisce true se l'array contiene altri array (es. [[1],2,3] => true)
@@ -35,7 +35,14 @@
 #5.  Conta il numero di caratteri maiuscoli in una stringa
 
  def count_upcased_letters(string) 
-   string.scan(/[A-Z]/).count 
+  n=0
+  s1=string.chars
+  s1.each do|i|
+   if i.upcase==i
+        n+=1
+   end
+  end
+      return n
    end
 
 #6. Converte un numero in numero romano
