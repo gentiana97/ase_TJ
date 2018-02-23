@@ -46,59 +46,34 @@
    end
 
 #6. Converte un numero in numero romano
-
- ROMAN_NUMBERS = {
-      1000 => "M",
-      900 => "CM",
-      500 => "D",
-      400 => "CD",
-      100 => "C",
+def to_roman(n)
+  roman_numbers = {
+    1000 => "M",
+     900 => "CM",
+     500 => "D",
+     400 => "CD",
+     100 => "C",
       90 => "XC",
       50 => "L",
       40 => "XL",
       10 => "X",
-      9 => "IX",
-      5 => "V",
-      4 => "IV",
-      1 => "I"  
+       9 => "IX",
+       5 => "V",
+       4 => "IV",
+       1 => "I"
   }
-
-  def to_roman(n)
-    return nil if n > 3000 || n < 1
-    return ciclo_conversione(n)
-   
-  end
-
-  def ciclo_conversione(n_decimale)
-    potenza_dieci = 1000
-    result = ''
-    while (n_decimale > 0) do
-      ris = n_decimale/potenza_dieci
-      result << multiplo(ris, potenza_dieci)
-      n_decimale = n_decimale-(ris*potenza_dieci)
-      potenza_dieci = potenza_dieci/10
+  result = ""
+  number = n
+  roman_numbers.keys.each do |divisor|
+    quotient = number/divisor
+    remainder = number%divisor
+    if quotient !=0
+      result << roman_numbers[divisor] * quotient
+      number = remainder
     end
-    result
   end
-
-  def multiplo(ris, potenza_dieci)
-   
-    case ris
-    when 0
-      ''
-    when 1..3
-      ROMAN_NUMBERS[potenza_dieci]*ris
-    when 4
-      ROMAN_NUMBERS[potenza_dieci]+ROMAN_NUMBERS[potenza_dieci*5]
-    when 5
-      ROMAN_NUMBERS[potenza_dieci*5]
-    when 6..8
-      ROMAN_NUMBERS[potenza_dieci*5]+(ROMAN_NUMBERS[potenza_dieci]*(ris-5))
-    when 9
-      ROMAN_NUMBERS[potenza_dieci] + ROMAN_NUMBERS[potenza_dieci*10]
-  end
-  end
-
+  result
+end
 
 # costruisce un punto con coordinate (x,y)
 class Point2D 
@@ -122,19 +97,21 @@ class Point2D
 
 
 require 'date' # necessario per l'uso della classe Date
+
 class Book
   attr_accessor :title, :author, :release_date, :publisher, :isbn
 
   # Implementa il costruttore
- 
-  def initialize(title:, author:, release_date:, publisher:, isbn:)
+   def initialize(title:, author:, release_date:, publisher:, isbn:)
     @title= title
     @author= author
     @release_date= release_date
     @publisher= publisher
     @isbn= isbn
-    #Hash di controllo
-    @cont={:title=>"not valid", :author=>"not valid", :release_date=>"not valid", :publisher=>"not valid", :isbn=>"not valid"}
+  end
+
+  def Fixnum?(num)
+    num<10**10 and num>10**9
   end
 
   # requisiti perche' un libro sia considerato valido:
@@ -143,30 +120,54 @@ class Book
   # release_date deve essere un oggetto Date
   # publisher deve essere una stringa non vuota
   # isbn deve essere un Fixnum minore di 10**10 e maggiore di 10**9
-  def valid?
-    
+       def stringa_valida?(string)
+    (string.class == String) && (!string.empty?)
+  end
+
+  def valid? #book.valid?
     @cont[:title]="valid" if (@title.is_a?(String) && !@title.empty?)
     @cont[:author]="valid" if (@author.is_a?(String) && !@author.empty?)
     @cont[:release_date]="valid" if (@release_date.is_a?(Date))
     @cont[:publisher]="valid" if (@publisher.is_a?(String) && !@publisher.empty?)
     @cont[:isbn]="valid" if (@isbn.is_a?(Fixnum) && @isbn <= 10**10 && @isbn >= 10**9)
-    
   
-    @cont.each do |key, value|
-        if value != "valid"
-            return false
-        end
-    end
-    return true
-  end
+    stringa_valida?(@title) && stringa_valida?(@author) && stringa_valida?(@publisher) && (release_date.class == Date) && Fixnum?(@isbn)
+  end 
+
 
   # restituisce un array di simboli.
   # Se l'oggetto e' valido, restituisce un vettore vuoto
   # Se non lo e', per ogni attributo che non e' valido, la chiave per
   # quell'attributo deve essere presente nel vettore, in qualsiasi ordine.
   # esempio: title e author non sono validi, restituisce [:title, :author]
-  def errors
+   def errors(book)
+    array = []
+    if book.valid? #valid?
+      array #return ?
+      #puts "tutti gli attributi del libro sono validi"
+    else  #metodo push per inserire in modalità append
+      if !stringa_valida?(@title)
+        array.push(":title")
+      end
 
-    return @cont.keys.select { |key| @cont[key] == "not valid" }
-  end
+      if !stringa_valida?(@author)
+        array.push(":author")
+      end
+
+      if !stringa_valida?(@publisher)
+        array.push(":publisher")
+      end
+
+      if !@release_date.class == Date
+        array.push(":release_date")
+      end
+
+      if !Fixnum?(@isbn)
+        array.push(":isbn")
+      end
+    end
+  end # ERRORS END
 end
+
+
+
