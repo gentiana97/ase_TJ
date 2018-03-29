@@ -1,0 +1,27 @@
+LEGENDA PRIORITA':
+
+  RED-> HIGH
+  YELLOW -> MEDIUM
+  GREEN -> LOW
+  
+  
+
+              USER STORIES                                                                           PRIORITY
+
+As a USER I want to be able to create my team                                                          RED
+
+As a USER I need to be able to add , edit and remove teams                                             RED
+
+As a USER I want to be able to create a new task                                                       RED
+
+As a USER I need to be able to add , edit and remove tasks                                             RED
+
+As a USER I need to be able to have a Gantt chart as result of the elaboration of the data             RED
+
+As a USER I want to be able to manage the duration                                                    YELLOW
+
+As a USER I want to see all the information for the project plan                                      YELLOW
+
+As a USER I want to have all tasks classified by priority and deadline                                YELLOW
+
+As a USER I want to be able to create a plan that is compatible with the availability of resources    GREEN
