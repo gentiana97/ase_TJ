@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name task:</strong>
+  <%= @task.name_task %>
+</p>
+
+<p>
+  <strong>Effort driven:</strong>
+  <%= @task.effort_driven %>
+</p>
+
+<p>
+  <strong>Estimate effort:</strong>
+  <%= @task.estimate_effort %>
+</p>
+
+<p>
+  <strong>Team:</strong>
+  <%= @task.team_id %>
+</p>
+
+<p>
+  <strong>Percentage task:</strong>
+  <%= @task.percentage_task %>
+</p>
+
+<p>
+  <strong>Priority:</strong>
+  <%= @task.priority %>
+</p>
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %>

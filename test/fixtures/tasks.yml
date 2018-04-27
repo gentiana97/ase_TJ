@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name_task: MyString
+  effort_driven: 1
+  estimate_effort: 1
+  team_id: 1
+  percentage_task: 1
+  priority: 1
+
+two:
+  name_task: MyString
+  effort_driven: 1
+  estimate_effort: 1
+  team_id: 1
+  percentage_task: 1
+  priority: 1

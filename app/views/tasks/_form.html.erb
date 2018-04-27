@@ -1,0 +1,47 @@
+<%= form_with(model: task, local: true) do |form| %>
+  <% if task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name_task %>
+    <%= form.text_field :name_task, id: :task_name_task %>
+  </div>
+
+  <div class="field">
+    <%= form.label :effort_driven %>
+    <%= form.number_field :effort_driven, id: :task_effort_driven %>
+  </div>
+
+  <div class="field">
+    <%= form.label :estimate_effort %>
+    <%= form.number_field :estimate_effort, id: :task_estimate_effort %>
+  </div>
+
+  <div class="field">
+    <%= form.label :team_id %>
+    <%= form.number_field :team_id, id: :task_team_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :percentage_task %>
+    <%= form.number_field :percentage_task, id: :task_percentage_task %>
+  </div>
+
+  <div class="field">
+    <%= form.label :priority %>
+    <%= form.number_field :priority, id: :task_priority %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

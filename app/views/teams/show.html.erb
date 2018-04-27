@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @team.name %>
+</p>
+
+<p>
+  <strong>Availability:</strong>
+  <%= @team.availability %>
+</p>
+
+<p>
+  <strong>Departure date:</strong>
+  <%= @team.departure_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @team.end_date %>
+</p>
+
+<%= link_to 'Edit', edit_team_path(@team) %> |
+<%= link_to 'Back', teams_path %>
