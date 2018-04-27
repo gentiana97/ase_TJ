@@ -1,13 +1,24 @@
-# ase_TJ
+# README
 
-PROGETTO:
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-Sviluppo di una applicazione rails che si integra con TaskJuggler.
+Things you may want to cover:
 
-COMPONENTI:
+* Ruby version
 
-DAMIANO RIGHETTI           172613
+* System dependencies
 
-SEBASTIAN MARTINELLI       171819
+* Configuration
 
-GENTIANA BERISHA           188175
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
